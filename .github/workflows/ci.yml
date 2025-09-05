@@ -25,7 +25,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Train model
-        run: python fraudDetetection.py
+        run: python fraud_detetection.py
 
       - name: Run single API test
         run: python test_API.py
