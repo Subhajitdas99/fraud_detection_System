@@ -27,13 +27,19 @@ jobs:
       - name: Train model
         run: python fraud_detetection.py
 
+      - name: Start FastAPI server
+        run: |
+          nohup uvicorn app:app --host 0.0.0.0 --port 8000 --reload &
+          sleep 5
+        shell: bash
+
       - name: Run single API test
         run: python test_API.py
 
       - name: Run batch API tests
         run: |
-          echo "V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V20,V21,V22,V23,V24,V25,V26,V27,V28,Amount,Class" > test_transactions_full.csv
-          echo "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0" >> test_transactions_full.csv
+          echo "V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V20,V21,V22,V23,V24,V25,V26,V27,V28,Amount,Time" > test_transactions_full.csv
+          echo "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,1" >> test_transactions_full.csv
           python batch_test_api_full.py
 
 
