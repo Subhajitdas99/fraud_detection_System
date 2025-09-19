@@ -5,6 +5,8 @@ __pycache__/
 
 # Model files
 *.pkl
+!fraud_model.pkl
+
 
 # Environment
 .env

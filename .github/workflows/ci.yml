@@ -28,6 +28,12 @@ jobs:
       run: pytest || echo "⚠️ No tests yet"
 
     # -------------------------
+    # Verify model file
+    # -------------------------
+    - name: Verify model file exists
+      run: ls -lh fraud_model.pkl
+
+    # -------------------------
     # Docker build & push
     # -------------------------
     - name: Login to Docker Hub
@@ -41,6 +47,7 @@ jobs:
         IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/fraud_detection:latest
         docker build -t $IMAGE_NAME .
         docker push $IMAGE_NAME
+
 
 
 
