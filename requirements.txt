@@ -3,10 +3,11 @@ uvicorn
 xgboost
 scikit-learn
 pandas
-imbalanced-learn
 numpy
-requests
+imbalanced-learn
 joblib
 matplotlib
 pytest
 httpx
+pydantic
+python-multipart
