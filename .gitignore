@@ -3,7 +3,6 @@ __pycache__/
 *.pyc
 
 outputs/
-models/
 
 data/creditcard.csv
 
@@ -12,3 +11,5 @@ test_transactions_full.csv
 
 .ipynb_checkpoints/
 .DS_Store
+
+.env
