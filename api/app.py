@@ -45,7 +45,9 @@ def home():
 @app.get("/health")
 def health():
     return {
-        "status": "healthy"
+        "status": "healthy",
+        "model_loaded": True,
+        "features": len(FEATURE_COLUMNS)
     }
 
 
