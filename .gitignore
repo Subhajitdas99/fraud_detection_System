@@ -2,14 +2,27 @@ venv/
 __pycache__/
 *.pyc
 
-outputs/
-
+# Dataset
 data/creditcard.csv
 
+# Model files
+models/
+*.pkl
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+
+# Outputs
+outputs/
+
+# Test artifacts
 api_results_full.csv
 test_transactions_full.csv
 
-.ipynb_checkpoints/
-.DS_Store
-
+# Environment
 .env
+
+# Jupyter
+.ipynb_checkpoints/

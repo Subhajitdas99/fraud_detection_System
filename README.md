@@ -4,30 +4,32 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-green)
 ![XGBoost](https://img.shields.io/badge/XGBoost-Fraud_Detection-orange)
 ![Docker](https://img.shields.io/badge/Docker-Container-blue)
+![MLflow](https://img.shields.io/badge/MLflow-Experiment_Tracking-purple)
 ![CI/CD](https://img.shields.io/badge/GitHub_Actions-CI/CD-success)
 
-An end-to-end Machine Learning system for detecting fraudulent credit card transactions using **XGBoost**, **SMOTE**, **FastAPI**, **Docker**, and **SHAP Explainability**.
+An end-to-end Machine Learning system for detecting fraudulent credit card transactions using **XGBoost**, **SMOTE**, **FastAPI**, **MLflow**, **Docker**, and **SHAP Explainability**.
 
 ---
 
-## 🚀 Key Features
+## 🚀 Features
 
 * Fraud Detection using XGBoost
-* Class Imbalance Handling with SMOTE
+* Class Imbalance Handling using SMOTE
 * REST API built with FastAPI
 * Explainable AI using SHAP
 * Precision-Recall Optimization
+* MLflow Experiment Tracking
 * Dockerized Deployment
-* GitHub Actions CI/CD
+* GitHub Actions CI/CD Pipeline
 * Production-Ready Project Structure
 
 ---
 
 ## 📌 Problem Statement
 
-Credit card fraud detection is a highly imbalanced classification problem where fraudulent transactions account for less than 0.2% of all transactions.
+Credit card fraud detection is a highly imbalanced classification problem where fraudulent transactions represent less than **0.2%** of all transactions.
 
-The objective of this project is to build a scalable machine learning pipeline capable of identifying fraudulent transactions while minimizing false negatives.
+The goal is to build a scalable machine learning pipeline capable of detecting fraudulent transactions while minimizing false negatives and maintaining strong precision.
 
 ---
 
@@ -52,11 +54,14 @@ Credit Card Dataset
  Model Evaluation
         │
         ├── Confusion Matrix
-        ├── PR Curve
+        ├── Precision-Recall Curve
         └── SHAP Analysis
         │
         ▼
-   FastAPI Service
+ MLflow Tracking
+        │
+        ▼
+ FastAPI Service
         │
         ▼
  REST Prediction API
@@ -71,22 +76,28 @@ fraud_detection_System/
 │
 ├── api/
 │   └── app.py
+│
 ├── src/
 │   ├── fraud_detection.py
 │   ├── evaluate.py
 │   └── shap_analysis.py
+│
 ├── tests/
+│
 ├── models/
 │   └── fraud_model.pkl
-├── data/
-│   └── creditcard.csv
+│
 ├── assets/
 │   ├── confusion_matrix.png
 │   ├── pr_curve.png
 │   └── shap_summary.png
+│
+├── mlruns/
+│
 ├── Dockerfile
 ├── requirements.txt
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ---
@@ -101,7 +112,7 @@ fraud_detection_System/
 | ROC-AUC   | 0.9828 |
 | PR-AUC    | 0.8755 |
 
-The model achieves high recall, ensuring that most fraudulent transactions are successfully detected.
+The model prioritizes high recall to maximize fraud detection while maintaining strong overall performance.
 
 ---
 
@@ -117,9 +128,11 @@ The model achieves high recall, ensuring that most fraudulent transactions are s
 
 ---
 
-## 🔍 SHAP Explainability
+## 🔍 Explainable AI (SHAP)
 
-Top Influential Features:
+SHAP helps explain model predictions and identify the most influential features.
+
+### Top Influential Features
 
 * V14
 * V4
@@ -134,34 +147,110 @@ Top Influential Features:
 
 ---
 
-## 🚀 API Usage
+## 📊 MLflow Experiment Tracking
 
-Start the API:
+The project uses MLflow to track:
+
+* Hyperparameters
+* Training Metrics
+* Model Artifacts
+* Experiment History
+
+### Start MLflow UI
+
+```bash
+mlflow ui --workers 1
+```
+
+Open:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 🚀 FastAPI Deployment
+
+### Start API
 
 ```bash
 uvicorn api.app:app --reload
 ```
 
-Swagger Documentation:
+### Swagger Documentation
 
 ```text
 http://127.0.0.1:8000/docs
+```
+
+### Available Endpoints
+
+| Method | Endpoint | Description      |
+| ------ | -------- | ---------------- |
+| GET    | /        | API Status       |
+| GET    | /health  | Health Check     |
+| POST   | /predict | Fraud Prediction |
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Subhajitdas99/fraud_detection_System.git
+cd fraud_detection_System
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/Mac:
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
 ```
 
 ---
 
 ## 🐳 Docker
 
-Build:
+### Build Image
 
 ```bash
 docker build -t fraud-detection .
 ```
 
-Run:
+### Run Container
 
 ```bash
 docker run -p 8000:8000 fraud-detection
+```
+
+---
+
+## 🧪 Run Training
+
+```bash
+python src/fraud_detection.py
 ```
 
 ---
@@ -173,10 +262,11 @@ docker run -p 8000:8000 fraud-detection
 * NumPy
 * Scikit-Learn
 * XGBoost
-* SMOTE
+* Imbalanced-Learn (SMOTE)
 * SHAP
 * FastAPI
 * Uvicorn
+* MLflow
 * Docker
 * GitHub Actions
 
@@ -184,22 +274,25 @@ docker run -p 8000:8000 fraud-detection
 
 ## 🔮 Future Improvements
 
-* MLflow Experiment Tracking
 * Model Registry
-* Kafka Integration
 * Real-Time Fraud Monitoring
-* Cloud Deployment
+* Kafka Streaming Integration
+* Cloud Deployment (AWS / Azure)
 * Monitoring Dashboard
+* Automated Retraining Pipeline
 
 ---
 
 ## 👨‍💻 Author
 
-**Subhajit Das**
+### Subhajit Das
 
 B.Tech CSE (AI & ML)
 
 Machine Learning Engineer | Data Science | AI Engineering
+
+GitHub: https://github.com/Subhajitdas99
+
 
 
 
